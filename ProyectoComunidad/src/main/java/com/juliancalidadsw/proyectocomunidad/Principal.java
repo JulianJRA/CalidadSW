@@ -11,7 +11,7 @@ public class Principal {
 
 	static Scanner teclado = new Scanner(System.in);
 
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) {
 
 		empresaMantenimiento empresa = new empresaMantenimiento("Ascensores Don Quijote S.A.", "C/ Camilo Jos� Cela",
 				120.0);
