@@ -3,6 +3,11 @@ package com.juliancalidadsw.proyectocomunidad;
 
 
 public class Inquilino extends Vecino {
+	
+	private static final double IMPUESTO_INQUILINO = 0.05;
+	private static final double IMPUESTO_INQUILINO2 = 0.1;
+	private static final double PRECIO_BASE_INQUILINO = 300;
+	private static final int PRECIO_ALQUILER = 400;
 
 	private double alquiler;
 
@@ -38,6 +43,7 @@ public class Inquilino extends Vecino {
 
 	}
 
+	@Override
 	public String toString() {
 
 		String cadena = "";

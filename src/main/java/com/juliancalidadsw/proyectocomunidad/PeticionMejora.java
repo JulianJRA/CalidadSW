@@ -2,12 +2,12 @@ package com.juliancalidadsw.proyectocomunidad;
 
 
 
-public class peticionMejora {
+public class PeticionMejora {
 
 	String descripcion;
 	int urgencia;
 
-	public peticionMejora(String descripcion, int urgencia) {
+	public PeticionMejora(String descripcion, int urgencia) {
 
 		this.descripcion = descripcion;
 		this.urgencia = urgencia;

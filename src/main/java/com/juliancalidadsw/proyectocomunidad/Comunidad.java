@@ -65,7 +65,7 @@ public class Comunidad { // creamos la clase y definimos todas sus variables
 		nVecinos = n;
 	}
 
-	public void addVecino(Vecino v) { // creamos el m�todo a�adir vecino para a�adir nuevos vecinos a la matriz
+	public void addVecino(Vecino v) { //creamos el metodo anyadir vecino para anyaadir nuevos vecinos a la matriz
 
 		if (nVecinos < vecinos.length) { // comprueba que se pueden a�adir vecinos a la matriz
 
@@ -76,12 +76,12 @@ public class Comunidad { // creamos la clase y definimos todas sus variables
 
 	}
 
-	public double calcularCosteMantenimiento(int ascensores, empresaMantenimiento empresa, Comunidad c) { // calcula el coste de mantenimiento 
+	public double calcularCosteMantenimiento(EmpresaMantenimiento empresa, Comunidad c) { // calcula el coste de mantenimiento 
 																										  //de los ascensores
 
-		double costeAscensor = empresa.getCosteAscensor();
+		double costePorAscensor = empresa.getCosteAscensor();
 
-		double costeMensual = (costeAscensor * c.getAscensores());
+		double costeMensual = (costePorAscensor * c.getAscensores());
 
 		return costeMensual * 12; // reune el coste mensual dado de los ascensores y lo multiplica por 12 para el
 									// total anual
@@ -91,8 +91,8 @@ public class Comunidad { // creamos la clase y definimos todas sus variables
 	public double calcularImpuestoVecino(int posicion) { // comprueba mediante la posici�n del vecino en la matriz el
 															// coste de su impuesto
 
-		double impuestoVecino = vecinos[posicion].calcularImpuesto();
-		return impuestoVecino;
+		return vecinos[posicion].calcularImpuesto();
+	
 	}
 
 	public double calcularImpuestoAnual() { // calcula el impuesto anual que recauda la comunidad de vecinos
@@ -145,12 +145,10 @@ public class Comunidad { // creamos la clase y definimos todas sus variables
 
 		for (int i = 0; i < vecinos.length; i++) {
 
-			if (nif.equalsIgnoreCase(vecinos[i].getNif())) {
+			if (nif.equalsIgnoreCase(vecinos[i].getNif()) && vecinos[i].comprobarPeticiones()) {
 
-				if (vecinos[i].comprobarPeticiones()) {
 					peticionPosible = true;
-				}
-
+			
 			}
 		}
 		return peticionPosible;
@@ -197,14 +195,16 @@ public class Comunidad { // creamos la clase y definimos todas sus variables
 		String cadena = "";
 
 		cadena = cadena + "N�mero de ascensores: " + ascensores +  "\n Direcci�n: " + direccion + "\n Nombre de la comunidad: " + nombre + "\n N�mero de vecinos: " + nVecinos;
-
+		
+		StringBuilder sbu = new StringBuilder();
+		
 		for (int i = 0; i < vecinos.length; i++) {
-
-			cadena = cadena + "\nInformaci�n vecino: " + " " + (i + 1) + " " + vecinos[i].toString() + " ";
+			
+			sbu.append("\nInformaci�n vecino: " + " " + (i + 1) + " " + vecinos[i].toString() + " ");
 
 		}
 
-		return cadena;
+		return cadena+sbu.toString();
 
 	}
 }

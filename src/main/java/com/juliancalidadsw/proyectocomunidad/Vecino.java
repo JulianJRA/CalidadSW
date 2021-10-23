@@ -2,21 +2,23 @@ package com.juliancalidadsw.proyectocomunidad;
 
 
 
-public abstract class Vecino implements Precios{
+public abstract class Vecino{
 
-	protected String nombre, piso, nif;
+	protected String nombre;
+	protected String piso;
+	protected String nif;
 	protected int nPeticiones;
 	protected double impuesto;
-	protected peticionMejora peticiones[];
+	protected PeticionMejora[] peticiones;
 
 	
-	public Vecino(String nombre, String nif, String piso) {
+	protected Vecino(String nombre, String nif, String piso) {
 
 		this.nombre = nombre;
 		this.piso = piso;
 		this.nif = nif;
 		nPeticiones=0;
-		this.peticiones= new peticionMejora[10];
+		this.peticiones= new PeticionMejora[10];
 	}
 	
 
@@ -43,19 +45,19 @@ public abstract class Vecino implements Precios{
 
 	public void setNombre(String nom) {
 
-		nom = nombre;
+		nombre = nom;
 
 	}
 
 	public void setPiso(String pis) {
 
-		pis = piso;
+		piso = pis;
 
 	}
 
 	public void setNif(String ni) {
 
-		ni = nif;
+		nif = ni;
 
 	}
 
@@ -65,7 +67,7 @@ public abstract class Vecino implements Precios{
 
 		
 
-			peticionMejora p = new peticionMejora(descripcion, urgencia);
+			PeticionMejora p = new PeticionMejora(descripcion, urgencia);
 
 			peticiones[nPeticiones] = p;
 
@@ -76,16 +78,16 @@ public abstract class Vecino implements Precios{
 
 	public String mostrarPeticion() {
 		
-		String cadena = "";
+		StringBuilder sbu = new StringBuilder();
 
 		for (int i = 0; i < nPeticiones; i++) {
 			if (peticiones[i].getUrgencia() == 1) {
 				
-				cadena = cadena +peticiones[i].toString();
+				sbu.append(peticiones[i].toString());
 
 			}
 		}
-		return cadena;
+		return sbu.toString();
 	}
 	
 	public boolean comprobarPeticiones() {
@@ -101,14 +103,16 @@ public abstract class Vecino implements Precios{
 		String cadena = "";
 
 		cadena = cadena + nombre + piso + nif + nPeticiones;
+		
+		StringBuilder sbu = new StringBuilder();
 
 		for (int i = 0; i < nPeticiones; i++) {
-
-			cadena = cadena + " " + " " + (i + 1) + " " + peticiones[i].toString() + " ";
+			
+			sbu.append(" " + " " + (i + 1) + " " + peticiones[i].toString() + " ");
 
 		}
 
-		return cadena;
+		return cadena+sbu.toString();
 
 	}
 

@@ -1,19 +1,20 @@
 package com.juliancalidadsw.proyectocomunidad;
 
-
-
-
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.io.FileNotFoundException;
 
 public class Principal {
 
 	static Scanner teclado = new Scanner(System.in);
+	static final String  NOEXISTE = " no existe";
+	static final String  ELVECINO = "El vecino con dni";
+	static final String  INTRODUCE = "Introduce un DNI";
 
 	public static void main(String[] args) {
+		
+		
 
-		empresaMantenimiento empresa = new empresaMantenimiento("Ascensores Don Quijote S.A.", "C/ Camilo Jos� Cela",
+		EmpresaMantenimiento empresa = new EmpresaMantenimiento("Ascensores Don Quijote S.A.", "C/ Camilo Jos� Cela",
 				120.0);
 
 		Comunidad c1 = new Comunidad(6, "C/ Juan Ram�n Jim�nez", "Torres Blancas");
@@ -26,7 +27,7 @@ public class Principal {
 
 	}
 
-	public static void menu(Comunidad c1, empresaMantenimiento empresa) {
+	public static void menu(Comunidad c1, EmpresaMantenimiento empresa) {
 		boolean error = true;
 		while (error) {
 			try {
@@ -90,7 +91,7 @@ public class Principal {
 
 					}
 
-				} while (condicion == true);
+				} while (condicion);
 
 			} catch (InputMismatchException e) {
 				System.out.println("Ha usado un caracter no v�lido");
@@ -132,29 +133,29 @@ public class Principal {
 			}
 			
 		}else if(!c.existeVecino(nif)){
-			System.out.println("El vecino con dni "+nif+" no existe");
+			System.out.println("El vecino con dni "+nif+ NOEXISTE);
 	}
 	}
 
 	public static void peticionesVecino(Comunidad c) {
-		System.out.println("Introduce un DNI");
+		System.out.println(INTRODUCE);
 		String nif = teclado.next();
 		if(c.existeVecino(nif)) {
 		int x = c.numeroPeticiones(nif);
 		System.out.println("El vecino con DNI " + nif + " ha realizado " + x + " peticiones de mejora");
 		}else if(!c.existeVecino(nif)){
-			System.out.println("El vecino con dni "+nif+" no existe");
+			System.out.println(ELVECINO+nif+NOEXISTE);
 	}
 	}
 
 	public static void peticionesUrgentes(Comunidad c) {
-		System.out.println("Introduce un DNI");
+		System.out.println(INTRODUCE);
 		String nif = teclado.next();
 		if (c.existeVecino(nif)) {
 			int a = c.posicionVecino(nif);
 			System.out.println(c.mostrarUrgentes(a));
 		}else if(!c.existeVecino(nif)){
-			System.out.println("El vecino con dni "+nif+" no existe");
+			System.out.println(ELVECINO+nif+NOEXISTE);
 	}
 	}
 
@@ -164,7 +165,7 @@ public class Principal {
 	}
 
 	public static void impuestoVecino(Comunidad c) {
-		System.out.println("Introduce un DNI");
+		System.out.println(INTRODUCE);
 		String nif = teclado.next();
 
 		if (c.existeVecino(nif)) {
@@ -172,13 +173,13 @@ public class Principal {
 			System.out.println(
 					"El impuesto del vecino con DNI " + nif + " son " + c.calcularImpuestoVecino(z) + " � al mes");
 		}else if(!c.existeVecino(nif)){
-			System.out.println("El vecino con dni "+nif+" no existe");
+			System.out.println(ELVECINO+nif+NOEXISTE);
 	}
 
 	}
 
-	public static void impuestoMantenimiento(Comunidad c, empresaMantenimiento empresa) {
-		System.out.println("El coste de mantenimiento anual es " + c.calcularCosteMantenimiento(3, empresa, c) + " �");
+	public static void impuestoMantenimiento(Comunidad c, EmpresaMantenimiento empresa) {
+		System.out.println("El coste de mantenimiento anual es " + c.calcularCosteMantenimiento(empresa, c) + " �");
 	}
 
 }

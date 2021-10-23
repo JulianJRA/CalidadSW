@@ -7,26 +7,30 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class FileManager {
+	
+	  private FileManager() {
+		    throw new IllegalStateException("Utility class");
+	  }
 
 	public static void leerVecinos(String cadena, Comunidad comunidad) {
 		File f = new File(cadena);
-		Scanner nombre_f;
+		Scanner nombref;
 		Vecino h;
 		try {
-			nombre_f = new Scanner(f);
-			while (nombre_f.hasNext()) {
+			nombref = new Scanner(f);
+			while (nombref.hasNext()) {
 
-				char opcion = nombre_f.next().charAt(0);
-				String nombre = nombre_f.next();
-				String nif = nombre_f.next();
-				String piso = nombre_f.next();
+				char opcion = nombref.next().charAt(0);
+				String nombre = nombref.next();
+				String nif = nombref.next();
+				String piso = nombref.next();
 				if (opcion == 'p') {
-					int anyo = nombre_f.nextInt();
+					int anyo = nombref.nextInt();
 					h = new Propietario(nombre, nif, piso, anyo);
 
 				} else {
 
-					double alquiler = Double.parseDouble(nombre_f.next());
+					double alquiler = Double.parseDouble(nombref.next());
 					h = new Inquilino(nombre, nif, piso, alquiler);
 
 				}
@@ -34,10 +38,12 @@ public class FileManager {
 				comunidad.addVecino(h);
 
 			}
+			nombref.close();
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		
 
 	}
 }

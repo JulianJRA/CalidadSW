@@ -2,13 +2,13 @@ package com.juliancalidadsw.proyectocomunidad;
 
 
 
-public class empresaMantenimiento {
+public class EmpresaMantenimiento {
 
 	private String nombre;
 	private String direccion;
 	private double costeAscensor;
 
-	public empresaMantenimiento(String nombre, String direccion, double costeAscensor) {
+	public EmpresaMantenimiento(String nombre, String direccion, double costeAscensor) {
 
 		this.nombre = nombre;
 		this.direccion = direccion;
