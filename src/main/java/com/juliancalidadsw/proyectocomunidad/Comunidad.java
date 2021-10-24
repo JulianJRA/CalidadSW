@@ -47,7 +47,7 @@ public class Comunidad { // creamos la clase y definimos todas sus variables
 		ascensores = ascen;
 	}
 
-	public Vecino[] getVecinoss() {
+	public Vecino[] getVecinos() {
 
 		return vecinos;
 
@@ -178,15 +178,7 @@ public class Comunidad { // creamos la clase y definimos todas sus variables
 
 	public String mostrarUrgentes(int x) { // se utiliza en la clase principal para mostrar las peticiones urgentes de
 											// un determinado vecino
-
-		String cadena = "";
-
-		for (int i = 0; i < nVecinos; i++) {
-
-			cadena = vecinos[x].mostrarPeticion();
-
-		}
-		return cadena;
+		return vecinos[x].mostrarPeticion();
 	}
 
 	public String toString() { // para mostrar la informacion completa del objeto, es decir, el valor de sus

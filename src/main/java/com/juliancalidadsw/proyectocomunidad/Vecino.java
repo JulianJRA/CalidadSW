@@ -8,7 +8,6 @@ public abstract class Vecino{
 	protected String piso;
 	protected String nif;
 	protected int nPeticiones;
-	protected double impuesto;
 	protected PeticionMejora[] peticiones;
 
 	
@@ -22,7 +21,9 @@ public abstract class Vecino{
 	}
 	
 
-
+	public PeticionMejora[] getPeticiones() {
+		return peticiones;
+	}
 	public String getNombre() {
 		return nombre;
 	}
@@ -37,10 +38,6 @@ public abstract class Vecino{
 
 	public int getNPeticiones() {
 		return nPeticiones;
-	}
-
-	public double getImpuesto() {
-		return impuesto;
 	}
 
 	public void setNombre(String nom) {

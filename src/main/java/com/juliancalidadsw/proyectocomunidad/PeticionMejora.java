@@ -40,7 +40,7 @@ public class PeticionMejora {
 
 	public String toString() {
 
-		String cadena = "\nLa descripci�n de la petici�n urgente es: ";
+		String cadena = "\nLa descripcion de la peticion urgente es: ";
 		cadena = cadena + descripcion;
 
 		return cadena;
