@@ -18,6 +18,7 @@
     <sonar.organization>julianjra26</sonar.organization>
     <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+    <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
     <sonar.coverage.jacoco.xmlReportPaths>../app-it/target/site/jacoco-aggregate/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
   </properties>
 
@@ -31,51 +32,47 @@
     </dependency>
   </dependencies>
 
+
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      
       <plugins>
       	<plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.6.5.201403032054</version>
-        <configuration>
-          <propertyName>jacoco.agent.argLine</propertyName>
-          <destFile>${sonar.jacoco.itReportPath}</destFile>
-          <append>true</append>
-        </configuration>
-        <executions>
-          <execution>
-            <id>agent</id>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <artifactId>maven-failsafe-plugin</artifactId>
-        <version>2.14.1</version>
-        <dependencies>
-          <dependency>
-            <groupId>org.apache.maven.surefire</groupId>
-            <artifactId>surefire-junit47</artifactId>
-            <version>2.14.1</version>
-          </dependency>
-        </dependencies>
-        <configuration>
-          <argLine>${jacoco.agent.argLine}</argLine>
-          <testFailureIgnore>true</testFailureIgnore>
-          <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>integration-test</goal>
-              <goal>verify</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
+    		<groupId>org.jacoco</groupId>
+    		<artifactId>jacoco-maven-plugin</artifactId>
+    		<version>0.7.7.201606060606</version>
+    		<executions>
+        		<execution>
+            		<goals>
+                		<goal>prepare-agent</goal>
+            		</goals>
+        		</execution>
+        		<execution>
+            		<id>report</id>
+            		<phase>prepare-package</phase>
+            		<goals>
+                		<goal>report</goal>
+            		</goals>
+        		</execution>
+        		<execution>
+            		<id>jacoco-check</id>
+            		<goals>
+                		<goal>check</goal>
+            		</goals>
+            		<configuration>
+                		<rules>
+                    		<rule>
+                        		<limits>
+                            		<limit>
+                                		<minimum>0.9</minimum>
+                            		</limit>
+                        		</limits>
+                    		</rule>
+                		</rules>
+            		</configuration>
+       	 		</execution>
+    		</executions>
+		</plugin>
       	<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -122,4 +119,5 @@
       </plugins>
     </pluginManagement>
   </build>
+
 </project>
