@@ -11,9 +11,9 @@ public abstract class Vecino{
 	protected PeticionMejora[] peticiones;
 
 	
-	protected Vecino(String nombre, String nif, String piso) {
+	protected Vecino(String nom, String nif, String piso) {
 
-		this.nombre = nombre;
+		this.nombre = nom;
 		this.piso = piso;
 		this.nif = nif;
 		nPeticiones=0;
