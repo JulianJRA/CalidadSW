@@ -96,13 +96,10 @@ public class Comunidad { // creamos la clase y definimos todas sus variables
 	}
 
 	public double calcularImpuestoAnual() { // calcula el impuesto anual que recauda la comunidad de vecinos
-
 		double impuesto = 0;
 
 		for (int i = 0; i < nVecinos; i++) {
-
 			impuesto = impuesto + vecinos[i].calcularImpuesto();
-
 		}
 		return impuesto;
 
