@@ -183,13 +183,13 @@ public class Comunidad { // creamos la clase y definimos todas sus variables
 
 		String cadena = "";
 
-		cadena = cadena + "N�mero de ascensores: " + ascensores +  "\n Direcci�n: " + direccion + "\n Nombre de la comunidad: " + nombre + "\n N�mero de vecinos: " + nVecinos;
+		cadena = cadena + "Numero de ascensores: " + ascensores +  "\n Direccion: " + direccion + "\n Nombre de la comunidad: " + nombre + "\n Numero de vecinos: " + nVecinos;
 		
 		StringBuilder sbu = new StringBuilder();
 		
 		for (int i = 0; i < vecinos.length; i++) {
 			
-			sbu.append("\nInformaci�n vecino: " + " " + (i + 1) + " " + vecinos[i].toString() + " ");
+			sbu.append("\nInformacion vecino: " + " " + (i + 1) + " " + vecinos[i].toString() + " ");
 
 		}
 

@@ -37,10 +37,30 @@ public class VecinoTest {
 		v.realizarPeticion("no hay internet", 1);
 		assertEquals(1,v.getNPeticiones());
 	}
+	
+	@Test
+	public void setNombreTest() {
+		Vecino v = new Propietario("Ana","00001111Z","1D",1984);
+		v.setNombre("Pepa");
+		assertEquals("Pepa",v.getNombre());
+	}
+	
+	@Test
+	public void setPisoTest() {
+		Vecino v = new Propietario("Ana","00001111Z","1D",1984);
+		v.setPiso("5A");
+		assertEquals("5A",v.getPiso());
+	}
+	
+	@Test
+	public void setNifTest() {
+		Vecino v = new Propietario("Ana","00001111Z","1D",1984);
+		v.setNif("12346789W");
+		assertEquals("12346789W",v.getNif());
+	}
 
 	@Test
 	public void realizarPeticionTest() {
-
 		Vecino v = new Propietario("Ana","00001111Z","1D",1984);
 		PeticionMejora p = new PeticionMejora("escape de gas", 1);
 		v.realizarPeticion("escape de gas", 1);

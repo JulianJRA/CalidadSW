@@ -53,6 +53,34 @@ public class ComunidadTest {
 	}
 
 	@Test
+	public void setAscensoresTest() {
+		Comunidad c = new Comunidad(5, "C/ Toledo, 65", "Union");
+		c.setAscensores(5);
+		assertEquals(5,c.getAscensores());
+	}
+	
+	@Test
+	public void setDireccionTest() {
+		Comunidad c = new Comunidad(5, "C/ Toledo, 65", "Union");
+		c.setDireccion("C/ Patata");
+		assertEquals("C/ Patata",c.getDireccion());
+	}
+	
+	@Test
+	public void setNombreTest() {
+		Comunidad c = new Comunidad(5, "C/ Toledo, 65", "Union");
+		c.setNombre("Alcarria");
+		assertEquals("Alcarria",c.getNombre());
+	}
+	
+	@Test
+	public void setnVecinosTest() {
+		Comunidad c = new Comunidad(5, "C/ Toledo, 65", "Union");
+		c.setnVecinos(3);
+		assertEquals(3,c.getnVecinos());
+	}
+	
+	@Test
 	public void addVecinoTest() {
 		Comunidad c = new Comunidad(5, "C/ Toledo, 65", "Union");
 		c.addVecino(new Propietario("Ana", "00001111Z", "1D", 1984));

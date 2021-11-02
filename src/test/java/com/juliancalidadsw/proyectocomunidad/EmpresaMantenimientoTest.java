@@ -26,5 +26,29 @@ public class EmpresaMantenimientoTest {
 				120.0);
 		assertEquals(120.0,empresa.getCosteAscensor(),0.001);
 	}
+	
+	@Test
+	public void setNombreTest() {
+		EmpresaMantenimiento empresa = new EmpresaMantenimiento("Ascensores S.A.", "C/ Camilo Jose Cela",
+				120.0);
+		empresa.setNombre("Ascensor");
+		assertEquals("Ascensor",empresa.getNombre());
+	}
+	
+	@Test
+	public void setDireccionTest() {
+		EmpresaMantenimiento empresa = new EmpresaMantenimiento("Ascensores S.A.", "C/ Camilo Jose Cela",
+				120.0);
+		empresa.setDireccion("C/ Toledo");
+		assertEquals("C/ Toledo",empresa.getDireccion());
+	}
+	
+	@Test
+	public void setCosteAscensorTest() {
+		EmpresaMantenimiento empresa = new EmpresaMantenimiento("Ascensores S.A.", "C/ Camilo Jose Cela",
+				120.0);
+		empresa.setCosteAscensor(105.0);
+		assertEquals(105.0,empresa.getCosteAscensor(),0.001);
+	}
 
 }

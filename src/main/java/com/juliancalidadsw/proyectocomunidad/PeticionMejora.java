@@ -32,9 +32,9 @@ public class PeticionMejora {
 
 	}
 
-	public void setDescripcion(int nu) {
+	public void setUrgencia(int ur) {
 
-		urgencia = nu;
+		urgencia = ur;
 
 	}
 
