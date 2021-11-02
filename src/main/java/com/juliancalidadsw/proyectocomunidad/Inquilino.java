@@ -50,8 +50,6 @@ public class Inquilino extends Vecino {
 
 		cadena = cadena + " "+nombre+" " + piso+" " + nif+" " + nPeticiones+" " + alquiler;
 
-		
-
 		return cadena;
 
 	}
